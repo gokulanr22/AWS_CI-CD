@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-1'
+        BUCKET_NAME = 'mybucketjenkins'
+        GITHUB_REPO_URL = 'https://github.com/gokulanr22/AWSs3.git'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Clone the Git repository
+                    git branch: 'main', url: GITHUB_REPO_URL
+                }
+            }
+        }
+
+        stage('Provision S3 Bucket') {
+            steps {
+                script {
+                    // Create S3 bucket using AWS CLI
+                    sh "aws s3api create-bucket --bucket $BUCKET_NAME --region $AWS_DEFAULT_REGION"
+                    echo "S3 bucket $BUCKET_NAME created successfully."
+                }
+            }
+        }
+    }
+}
