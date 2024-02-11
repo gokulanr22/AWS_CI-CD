@@ -5,6 +5,7 @@ pipeline {
         AWS_DEFAULT_REGION = 'us-east-1'
         BUCKET_NAME = 'mybucketjenkins'
         GITHUB_REPO_URL = 'https://github.com/gokulanr22/AWSs3.git'
+        GIT_CREDENTIALS_ID = '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'
     }
 
     stages {
