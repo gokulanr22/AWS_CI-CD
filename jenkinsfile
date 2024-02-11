@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Create S3 bucket using AWS CLI
-                    withCredentials([[$class: 'StringBinding', credentialsId: '7eaab881-4303-4f8d-9e8c-aeb30054bb4b', variable: 'AWS_ACCESS_KEY_ID'], [$class: 'StringBinding', credentialsId: '7eaab881-4303-4f8d-9e8c-aeb30054bb4b', variable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    withCredentials([[$class: 'StringBinding', credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'], [$class: 'StringBinding', credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY']]) {
     // Your AWS CLI or SDK commands here
                     sh "aws s3api create-bucket --bucket $BUCKET_NAME --region $AWS_DEFAULT_REGION"
                     echo "S3 bucket $BUCKET_NAME created successfully."
