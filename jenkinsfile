@@ -5,7 +5,6 @@ pipeline {
         AWS_DEFAULT_REGION = 'us-east-1'
         BUCKET_NAME = 'mybucketjenkins'
         GITHUB_REPO_URL = 'https://github.com/gokulanr22/AWSs3.git'
-        GIT_CREDENTIALS_ID = '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'
     }
 
     stages {
@@ -22,8 +21,11 @@ pipeline {
             steps {
                 script {
                     // Create S3 bucket using AWS CLI
+                    withCredentials([[$class: 'StringBinding', credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'], [$class: 'StringBinding', credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY']]) {
+    // Your AWS CLI or SDK commands here
                     sh "aws s3api create-bucket --bucket $BUCKET_NAME --region $AWS_DEFAULT_REGION"
                     echo "S3 bucket $BUCKET_NAME created successfully."
+                 }
                 }
             }
         }
