@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-1'
+        STACK_NAME = 's3bucketstack'
+        GITHUB_REPO_URL = 'https://github.com/gokulanr22/AWSs3.git'
+        TEMPLATE_FILE = 'S3.yaml'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    // Clone the Git repository
+                    checkout scm
+                }
+            }
+        }
+
+        stage('Deploy CloudFormation Stack') {
+            steps {
+                script {
+                    // Deploy CloudFormation stack
+                    sh "aws cloudformation create-stack --stack-name $STACK_NAME --template-body file://$WORKSPACE/$TEMPLATE_FILE --region $AWS_DEFAULT_REGION --capabilities CAPABILITY_IAM"
+                    echo "CloudFormation stack $STACK_NAME creation initiated."
+                }
+            }
+        }
+    }
+}
