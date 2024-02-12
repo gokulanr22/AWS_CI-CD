@@ -23,7 +23,7 @@ pipeline {
                 script {
                     // Deploy CloudFormation stack
                     withCredentials([[$class: 'StringBinding', credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'], [$class: 'StringBinding', credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    sh "aws cloudformation update-stack --stack-name $STACK_NAME --template-body file://$WORKSPACE/$TEMPLATE_FILE --region $AWS_DEFAULT_REGION --capabilities CAPABILITY_IAM"
+                    sh "aws cloudformation delete-stack --stack-name $STACK_NAME --template-body file://$WORKSPACE/$TEMPLATE_FILE --region $AWS_DEFAULT_REGION --capabilities CAPABILITY_IAM"
                     echo "CloudFormation stack $STACK_NAME creation initiated."
                     }
                 }
