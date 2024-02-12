@@ -3,4 +3,4 @@ Resources:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Retain
     Properties:
-      BucketName: Gokuls3bucket
+      BucketName: 'Gokuls3bucket'
