@@ -1,9 +1,9 @@
-#Resources:
+Resources:
 #  S3Bucket:
  #   Type: 'AWS::S3::Bucket'
  #   Properties:
  #     BucketName: 'newtestingbucketfromjenkins'
-  S3Bucket:
+   S3Bucket:
      Type: 'AWS::S3::Bucket'
      Properties:
        BucketName: 'newtestingbucketfromjenkins001'
