@@ -1,6 +1,5 @@
 Resources:
   S3Bucket:
     Type: 'AWS::S3::Bucket'
-    DeletionPolicy: Retain
     Properties:
-      BucketName: 'Gokul-22-2001'
+      BucketName: 'newtestingbucketfromjenkins'
