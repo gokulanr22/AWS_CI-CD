@@ -27,7 +27,7 @@ output "ec2" {
   
 }
 output "s3" {
-    value = aws_s3_bucket.example.Name
+    value = aws_s3_bucket.example.name
 } 
 
  resource "aws_s3_bucket" "example" {
