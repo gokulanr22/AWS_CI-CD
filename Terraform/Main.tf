@@ -22,8 +22,7 @@ resource "aws_ec2_instance_state" "myec2" {
 }
 
 output "ec2" {
-    value = aws_instance.myec2.id
-    value = aws_s3_bucket.example.Name
+    value = [aws_instance.myec2.id, aws_s3_bucket.example.Name]
   
 }
 
