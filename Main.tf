@@ -3,7 +3,7 @@ provider "aws" {
   
 }
 
-/* resource "aws_instance" "myec2" {
+resource "aws_instance" "myec2" {
 
     ami = "ami-08a52ddb321b32a8c"
     instance_type = "t2.medium"
@@ -18,4 +18,4 @@ provider "aws" {
 output "ec2" {
     value = aws_instance.myec2.id
   
-} */
+}
