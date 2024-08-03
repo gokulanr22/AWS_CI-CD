@@ -3,7 +3,7 @@ provider "aws" {
   
 }
 
-resource "aws_instance" "myec2" {
+/* resource "aws_instance" "myec2" {
 
     ami = "ami-08a52ddb321b32a8c"
     instance_type = "t2.micro"
@@ -14,9 +14,9 @@ resource "aws_instance" "myec2" {
       "Name" = "Gokulan_ec2"
     }
   
-}
+} */
 
-resource "aws_ec2_instance_state" "myec2" {
+/* resource "aws_ec2_instance_state" "myec2" {
   instance_id = aws_instance.myec2.id
   state       = "stopped"
 }
@@ -25,3 +25,4 @@ output "ec2" {
     value = aws_instance.myec2.id
   
 }
+ */
