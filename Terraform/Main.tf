@@ -22,10 +22,13 @@ resource "aws_ec2_instance_state" "myec2" {
 }
 
 output "ec2" {
-    value = [aws_instance.myec2.id, aws_s3_bucket.example.Name]
+    value = aws_instance.myec2.id
+
   
 }
-
+output "s3" {
+    value = aws_s3_bucket.example.Name
+} 
 
  resource "aws_s3_bucket" "example" {
   bucket = "my-tf-test-bucket"
